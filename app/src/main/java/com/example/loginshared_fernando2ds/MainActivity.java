@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     EditText edt_nome, edt_email, edt_senha;
     SharedPreferences preferences;
 
+    TextView txt_logoff;
     private void initComponents(){
         checkboxGravar = findViewById(R.id.checkboxGravar);
         btn_entrar = findViewById(R.id.btn_entrar);
@@ -115,6 +117,15 @@ public class MainActivity extends AppCompatActivity {
         edt_nome.setText("");
         edt_email.setText("");
         edt_senha.setText("");
+
+
+        txt_logoff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finishAffinity();
+
+            }
+        });
 
         Intent intent = new Intent(MainActivity.this, HomeActivity.class);
         startActivity(intent);
